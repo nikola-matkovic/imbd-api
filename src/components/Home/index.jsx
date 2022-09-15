@@ -5,7 +5,6 @@ import {useState, useEffect, useContext} from 'react'
 import style from './style.module.css'
 import { Context } from "../../App";
 
-
 const Home = () => {
     let context = useContext(Context)
     let url = context.url;
@@ -49,9 +48,7 @@ const Home = () => {
             </div>
         </div>
     })
-
     return (
-
         <Layout>
             <main className={style.main}>
               {movieElements}
