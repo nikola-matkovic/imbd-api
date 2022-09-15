@@ -37,6 +37,10 @@ const Home = () => {
                 <span>{imDbRating} / 10</span>
                 <span>{imDbRatingCount} Vrotes</span>
             </div>
+            <div className={style.footer}>
+                <span>{rank}</span>
+                <span>{year}</span>
+            </div>
         </div>
     })
 
