@@ -11,6 +11,8 @@
     overflow: hidden;
     height: 500px;
     color: white;
+    font-family: 'Inter', sans-serif;
+    position: relative;
 }
 
 .card img{
@@ -39,5 +41,30 @@
     justify-content: space-between;
     padding: 10px 5px;
     font-size: 1.1rem;
-    font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+}
+
+.card .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+    height: 40px;
+    background-color: #222;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-right: 20px;
+}
+.card .footer span:first-child{
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 20px;
+    font-family: 'inter', sans-serif;
+    width: 40px;
+    color: black;
+    font-weight: bold;
 }
