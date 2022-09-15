@@ -1,20 +1,26 @@
 import Layout from "../Layout";
 import axios from 'axios'
 import key from "../api/key.json"
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import style from './style.module.css'
+import { Context } from "../../App";
+
 
 const Home = () => {
-    let apiKey = key.key2;
+    let context = useContext(Context)
+    let url = context.url;
+    let setUrl = context.setUrl;
+    let apiKey = key.key3;
     const urls = ["https://imdb-api.com/en/API/Top250Movies", "https://imdb-api.com/en/API/Top250TVs" ]
     const [movies, setMovies] = useState([]);
-    const [url, setUrl] = useState(urls[0]);
-
     useEffect(() => {
-        axios.get(url, {params: {apiKey, lang: "en"}})
-        .then( (result) =>setMovies(result.data.items))
+        axios.get(urls[url], {params: {apiKey, lang: "en"}})
+        .then( (result) => {
+            setMovies(result.data.items)
+            // console.log(result);
+        })
         .catch(e => console.log(e))
-    }, []);
+    }, [url]);
     let movieElements = movies.map((movie) => {
         const {id, rank, title, fullTitle, crew, imDbRating, imDbRatingCount, image, year} = movie
         let stars = [];
@@ -29,17 +35,17 @@ const Home = () => {
         for(i; i <= 10; i++){
             stars.push(<i key={i} className="bi bi-star"></i>)
         }
-        return <div key={key} className={style.card}>
+        return <div className={style.card}>
             <img src={image} alt={movie.title} />
             <h3>{movie.title}</h3>
             {stars}
-            <div className={style.rating}>
-                <span>{imDbRating} / 10</span>
-                <span>{imDbRatingCount} Vrotes</span>
+            <div key ={1} className={style.rating}>
+                <span key={2} >{imDbRating} / 10</span>
+                <span key={3}>{imDbRatingCount} Vrotes</span>
             </div>
-            <div className={style.footer}>
-                <span>{rank}</span>
-                <span>{year}</span>
+            <div key={4} className={style.footer}>
+                <span  key={5}>{rank}</span>
+                <span  key={6}>{year}</span>
             </div>
         </div>
     })
