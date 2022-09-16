@@ -4,8 +4,12 @@ import key from "../api/key.json"
 import {useState, useEffect, useContext} from 'react'
 import style from './style.module.css'
 import { Context } from "../../App";
-
+import { useNavigate } from "react-router";
 const Home = () => {
+    let navigate = useNavigate();
+    const goToShow = (id) => {
+        navigate(`/movies/${id}`, {replace: true})
+    }
     let context = useContext(Context)
     let url = context.url;
     let setUrl = context.setUrl;
@@ -34,7 +38,7 @@ const Home = () => {
         for(i; i <= 10; i++){
             stars.push(<i key={i} className="bi bi-star"></i>)
         }
-        return <div className={style.card}>
+        return <div className={style.card} onClick={(e) => goToShow(id)}>
             <img src={image} alt={movie.title} />
             <h3>{movie.title}</h3>
             {stars}
