@@ -8,19 +8,19 @@ import { useNavigate } from "react-router";
 const Home = () => {
     let navigate = useNavigate();
     const goToShow = (id) => {
-        navigate(`/movies/${id}`, {replace: true})
+        navigate(`/movies/${id}`, {replace: false})
     }
     let context = useContext(Context)
     let url = context.url;
     let setUrl = context.setUrl;
-    let apiKey = key.key3;
+    let apiKey = key.key2;
     const urls = ["https://imdb-api.com/en/API/Top250Movies", "https://imdb-api.com/en/API/Top250TVs" ]
     const [movies, setMovies] = useState([]);
     useEffect(() => {
         axios.get(urls[url], {params: {apiKey, lang: "en"}})
         .then( (result) => {
             setMovies(result.data.items)
-            // console.log(result);
+            console.log(result);
         })
         .catch(e => console.log(e))
     }, [url]);
