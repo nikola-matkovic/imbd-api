@@ -1,11 +1,11 @@
-.actorcards{
+.actorcards {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.actorCard{
+.actorCard {
     width: 300px;
 }
-.actorCard img{
+.actorCard img {
     max-width: 100%;
 }
