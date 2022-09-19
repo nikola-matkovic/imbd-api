@@ -26,7 +26,7 @@ const Movies = () => {
     let {actorList, awards, directors, fullTitle, genres, imDbRating, imDbRatingVotes, image, plot,releaseDate, runtimeStr,  stars, writers, posters, wikipedia } = info
     let actorCards = 
             <div className={style.actorcards}>{
-                actorList.map((actor, index) => {
+                actorList?.map((actor, index) => {
                     return( 
                         <div key={index} className={style.actorCard}>
                             <img src={actor.image} />
