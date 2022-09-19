@@ -3,7 +3,12 @@ import { useParams } from "react-router";
 import Api from "../api/key.json";
 import { useEffect, useState } from "react";
 import Layout from "../Layout";
+import "@splidejs/react-splide/css";
+import "@splidejs/react-splide/css/skyblue";
+import "@splidejs/react-splide/css/sea-green";
+import "@splidejs/react-splide/css/core";
 import style from "./style.module.css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 const Movies = () => {
     let apiKey = Api.key3;
@@ -44,18 +49,26 @@ const Movies = () => {
         posters,
         wikipedia,
     } = info;
+
     let actorCards = (
-        <div className={style.actorcards}>
-            {actorList?.map((actor, index) => {
+        <Splide
+            options={{
+                type: "loop",
+                perPage: 3,
+                perMove: 1,
+            }}
+            aria-label="actorcards"
+        >
+            {actorList?.map((actor) => {
                 return (
-                    <div key={index} className={style.actorCard}>
-                        <img src={actor.image} />
-                        <h1>{actor.name}</h1>
-                        <p>-as {actor.asCharacter}</p>
-                    </div>
+                    <SplideSlide aria-label="test">
+                        <img src={actor.image} alt={actor.name} />
+                        <h4>{actor.name}</h4>
+                        <p>{actor.asCharacter}</p>
+                    </SplideSlide>
                 );
             })}
-        </div>
+        </Splide>
     );
     return <Layout>{actorCards}</Layout>;
 };

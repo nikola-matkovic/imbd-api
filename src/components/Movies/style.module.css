@@ -1,11 +1,3 @@
-.actorcards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.actorCard {
-    width: 300px;
-}
-.actorCard img {
-    max-width: 100%;
+* {
+    outline: 1px solid red !important;
 }
