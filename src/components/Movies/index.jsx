@@ -11,9 +11,10 @@ import style from "./style.module.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 const Movies = () => {
-    let apiKey = Api.key3;
+    let apiKey = Api.key2;
     let { movie } = useParams();
     const [info, setInfo] = useState({});
+    const [numberOfSlides, setNumberOfSlides] = useState(4);
     useEffect(() => {
         axios
             .get("https://imdb-api.com/en/API/Title", {
@@ -31,6 +32,16 @@ const Movies = () => {
             })
             .catch((rej) => console.log(rej));
     }, [movie]);
+
+    useEffect(() => {
+        const resizeListener = () => {
+            let x = window.innerWidth;
+            setNumberOfSlides(Math.floor(x / 300));
+            console.log(numberOfSlides, "here");
+        };
+        window.addEventListener("resize", resizeListener);
+        return () => document.removeEventListener("resize", resizeListener());
+    }, [numberOfSlides]);
 
     let {
         actorList,
@@ -54,8 +65,8 @@ const Movies = () => {
         <Splide
             options={{
                 type: "loop",
-                perPage: 3,
-                perMove: 1,
+                perPage: numberOfSlides,
+                perMove: Math.floor(numberOfSlides / 2),
             }}
             aria-label="actorcards"
         >
