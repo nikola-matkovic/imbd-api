@@ -7,11 +7,10 @@ import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
-import style from "./style.module.css";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-
+import { Splide } from "@splidejs/react-splide";
+import PeopleCard from "../PeopleCard";
 const Movies = () => {
-    let apiKey = Api.key2;
+    let apiKey = Api.key3;
     let { movie } = useParams();
     const [info, setInfo] = useState({});
     const [numberOfSlides, setNumberOfSlides] = useState(4);
@@ -72,11 +71,16 @@ const Movies = () => {
         >
             {actorList?.map((actor) => {
                 return (
-                    <SplideSlide aria-label="test">
-                        <img src={actor.image} alt={actor.name} />
-                        <h4>{actor.name}</h4>
-                        <p>{actor.asCharacter}</p>
-                    </SplideSlide>
+                    <>
+                        <div className={stlye.image}>
+                            <img src={image} alt={fullTitle} />
+                        </div>
+                        <PeopleCard
+                            name={actor.name}
+                            asCharacter={actor.asCharacter}
+                            image={actor.image}
+                        />
+                    </>
                 );
             })}
         </Splide>

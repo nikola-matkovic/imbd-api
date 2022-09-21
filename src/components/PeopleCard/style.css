@@ -1,0 +1,29 @@
+ul {
+    gap: 20px;
+}
+li img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+[aria-roledescription="slide"] {
+    border: 1px solid red;
+    height: 360px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+[aria-roledescription="slide"] h4 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 5px;
+}
