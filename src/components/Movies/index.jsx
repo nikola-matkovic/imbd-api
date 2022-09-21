@@ -13,7 +13,7 @@ import style from "./style.module.css";
 import Stars from "../Stars/Stars";
 
 const Movies = () => {
-    let apiKey = Api.key5;
+    let apiKey = Api.key4;
     let { movie } = useParams();
     const [info, setInfo] = useState({});
     const [numberOfSlides, setNumberOfSlides] = useState(4);
@@ -90,10 +90,11 @@ const Movies = () => {
         <Splide
             options={{
                 type: "loop",
-                perPage: 2,
+                perPage: numberOfSlides / 2,
                 perMove: 1,
             }}
             aria-label="actorcards"
+            className={style.poster}
         >
             {posters?.map((poster) => {
                 return (

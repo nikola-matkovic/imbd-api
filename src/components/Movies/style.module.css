@@ -73,3 +73,14 @@
 .genres {
     text-align: right;
 }
+.poster {
+    height: 800px;
+}
+.poster [aria-roledescription="slide"] {
+    height: 650px;
+    background-color: red;
+}
+.poster [aria-roledescription="slide"] img {
+    height: 650px;
+    background-color: red;
+}
