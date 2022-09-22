@@ -6,8 +6,10 @@ const PeopleCard = (props) => {
     return (
         <SplideSlide aria-label="test">
             <img src={image} alt={name} />
-            <h4>{name}</h4>
-            <p>{asCharacter}</p>
+            <div className="card-footer">
+                <h4>{name}</h4>
+                <p>{asCharacter}</p>
+            </div>
         </SplideSlide>
     );
 };

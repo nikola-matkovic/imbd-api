@@ -1,0 +1,26 @@
+.splide__pagination {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    height: 50px;
+    position: relative;
+    top: 20px;
+}
+.splide__pagination li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .splide__pagination {
+        display: none !important;
+    }
+}
+
+.splide__pagination li button {
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+}
