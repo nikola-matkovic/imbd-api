@@ -15,7 +15,7 @@ const Home = () => {
     let context = useContext(Context);
     let url = context.url;
     let setUrl = context.setUrl;
-    let apiKey = key.key4;
+    let apiKey = key.key;
     const urls = [
         "https://imdb-api.com/en/API/Top250Movies",
         "https://imdb-api.com/en/API/Top250TVs",

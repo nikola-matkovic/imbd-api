@@ -11,11 +11,12 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PeopleCard from "../PeopleCard";
 import style from "./style.module.css";
 import Stars from "../Stars/Stars";
-
+import parse from "html-react-parser";
 const Movies = () => {
-    let apiKey = Api.key4;
+    let apiKey = Api.key3;
     let { movie } = useParams();
     const [info, setInfo] = useState({});
+    const [showFullPlot, setShowFullPlot] = useState(false);
     const [numberOfSlides, setNumberOfSlides] = useState(4);
     useEffect(() => {
         axios
@@ -30,7 +31,7 @@ const Movies = () => {
             })
             .then((res) => {
                 setInfo(res.data);
-                console.log(res);
+                console.log(info);
             })
             .catch((rej) => console.log(rej));
     }, [movie]);
@@ -39,7 +40,6 @@ const Movies = () => {
         const resizeListener = () => {
             let x = window.innerWidth;
             setNumberOfSlides(Math.floor(x / 300));
-            console.log(numberOfSlides, "here");
         };
         window.addEventListener("resize", resizeListener);
         return () => document.removeEventListener("resize", resizeListener());
@@ -54,15 +54,12 @@ const Movies = () => {
         imDbRating,
         imDbRatingVotes,
         image,
-        plot,
         releaseDate,
         runtimeStr,
-        stars,
         writers,
         posters,
         wikipedia,
     } = info;
-    console.log(posters);
     let actorCards = (
         <Splide
             options={{
@@ -99,7 +96,11 @@ const Movies = () => {
             {posters?.map((poster) => {
                 return (
                     <SplideSlide>
-                        <img src={poster.link} alt="" />
+                        <img
+                            src={poster.link}
+                            alt=""
+                            onClick={() => window.open(poster.link, "_blank")}
+                        />
                     </SplideSlide>
                 );
             })}
@@ -115,20 +116,42 @@ const Movies = () => {
                     <i className={style.awards}>{awards}</i>
                     <h1>{fullTitle}</h1>
                     <h4>Directed by : {directors}</h4>
-
+                    <h4>Writed by : {writers}</h4>
+                    <div className={style.plot}>
+                        {!showFullPlot &&
+                            wikipedia &&
+                            parse(wikipedia?.plotShort?.html)}
+                        {showFullPlot &&
+                            wikipedia &&
+                            parse(wikipedia?.plotFull?.html)}
+                    </div>
+                    <button
+                        className="btn btn-dark"
+                        onClick={() => setShowFullPlot((prev) => !prev)}
+                    >
+                        Show {!showFullPlot ? "more" : "less"}
+                    </button>
+                    <div className={style.moreinfo}>
+                        <p>Relased : {releaseDate}</p>
+                        <p>Duration: {runtimeStr}</p>
+                    </div>
                     <div className={style.footer}>
                         <div className={style.rating}>
                             {imDbRating} ({imDbRatingVotes} vrotes)
                         </div>
                         <Stars number={imDbRating} />
-
                         <div className={style.genres}>{genres}</div>
                     </div>
                 </div>
             </div>
-
-            {actorCards}
-            {postersElement}
+            <section>
+                <h2>ACTORS</h2>
+                {actorCards}
+            </section>
+            <section>
+                <h2>POSTERS</h2>
+                {postersElement}
+            </section>
         </Layout>
     );
 };
