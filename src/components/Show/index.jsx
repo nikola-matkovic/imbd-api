@@ -15,7 +15,7 @@ import style from "./style.module.css";
 import Stars from "../Stars/Stars";
 import parse from "html-react-parser";
 const Show = () => {
-    let apiKey = Api.key3;
+    let apiKey = Api.key5;
     let { movie } = useParams();
     const [info, setInfo] = useState({});
     const [showFullPlot, setShowFullPlot] = useState(false);
