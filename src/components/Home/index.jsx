@@ -10,12 +10,12 @@ import Stars from "../Stars/Stars";
 const Home = () => {
     let navigate = useNavigate();
     const goToShow = (id) => {
-        navigate(`/movies/${id}`, { replace: false });
+        navigate(`/show/${id}`, { replace: false });
     };
     let context = useContext(Context);
     let url = context.url;
     let setUrl = context.setUrl;
-    let apiKey = key.key;
+    let apiKey = key.key3;
     const urls = [
         "https://imdb-api.com/en/API/Top250Movies",
         "https://imdb-api.com/en/API/Top250TVs",
