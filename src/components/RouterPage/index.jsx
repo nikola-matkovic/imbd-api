@@ -8,7 +8,7 @@ const RouterPage = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Show/:movie" element={<Show />} />
-            <Route path="/search/:exspression" element={<Search />} />
+            <Route path="/search/:expression" element={<Search />} />
             <Route path="/*" element={<p>404</p>} />
         </Routes>
     );

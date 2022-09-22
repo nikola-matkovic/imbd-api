@@ -22,14 +22,21 @@ const Search = () => {
         axios
             .get(urls[url], { params: { apiKey, lang: "en", expression } })
             .then((result) => {
-                setFound(result.data);
-                console.log(result);
+                setFound(result.data.results);
+                console.log(found, "heeej");
             })
             .catch((e) => console.log(e));
-    }, [url]);
+    }, [url, expression]);
     return (
         <Layout>
-            <p>search</p>
+            {/* {found?.map((title, index) => {
+                return (
+                    <div key={index} className={style.card}>
+                        <img src={title.image} alt={title.title} />
+                        <h3>{title.title}</h3>
+                    </div>
+                );
+            })} */}
         </Layout>
     );
 };

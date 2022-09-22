@@ -14,7 +14,7 @@ const Nav = () => {
     }, []);
     let navigate = useNavigate();
     const searchFunction = () => {
-        navigate(`/search/:${searchText}`, { replace: false });
+        navigate(`/search/${searchText}`, { replace: false });
     };
 
     return (
