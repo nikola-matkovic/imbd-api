@@ -1,13 +1,22 @@
 import { Context } from "../../App";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import style from "./style.module.css";
+
 const Nav = () => {
     let context = useContext(Context);
     let url = context.url;
     let setUrl = context.setUrl;
+    const [searchText, setSearchText] = useState("");
+
     useEffect(() => {
         setUrl(0);
     }, []);
+    let navigate = useNavigate();
+    const searchFunction = () => {
+        navigate(`/search/:${searchText}`, { replace: false });
+    };
+
     return (
         <nav>
             <div className={style.left}>
@@ -16,8 +25,17 @@ const Nav = () => {
             </div>
             <div className={style.center}>IMDB API</div>
             <div className={style.right}>
-                <input type="text" />
-                <button className="btn btn-dark">Search</button>
+                <input
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    type="text"
+                />
+                <button
+                    className="btn btn-dark"
+                    onClick={(e) => searchFunction()}
+                >
+                    Search
+                </button>
             </div>
         </nav>
     );

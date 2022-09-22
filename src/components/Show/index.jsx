@@ -8,7 +8,6 @@ import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
 import style2 from "./pagination-style.css";
-
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PeopleCard from "../PeopleCard";
 import style from "./style.module.css";
