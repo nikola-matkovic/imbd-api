@@ -1,0 +1,125 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px 0px black;
+    height: 900px;
+}
+.left {
+    overflow: hidden;
+    height: 100%;
+}
+.right {
+    padding: 0 20px;
+}
+.left img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.info .awards {
+    display: block;
+    margin-top: 10px;
+    line-height: 20px;
+    text-align: right;
+}
+.info .right {
+    position: relative;
+    height: 100%;
+}
+.info .right h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 30px 0;
+}
+.info h4 {
+    font-size: 20px;
+}
+.info h4:nth-of-type(2) {
+    margin: 20px 0;
+}
+
+.info .right .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    height: 50px;
+    background-color: #222;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.footer .genres,
+.footer .rating {
+    font-size: 20px;
+    width: 33%;
+}
+.genres {
+    text-align: right;
+}
+.poster {
+    height: 800px;
+}
+.poster [aria-roledescription="slide"] {
+    height: 650px;
+    background-color: red;
+}
+.poster [aria-roledescription="slide"] img {
+    height: 650px;
+    background-color: red;
+    cursor: pointer;
+}
+.plot {
+    max-height: 560px;
+    overflow-y: auto;
+    width: calc(100% + 20px);
+    line-height: 1.5rem;
+}
+.plot::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: rgb(124, 124, 124); /* or add it to the track */
+}
+.plot::-webkit-scrollbar-thumb {
+    background-color: yellow;
+}
+.moreinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right button {
+    height: 30px;
+    width: 150px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -10px;
+}
+section {
+    margin-top: 60px;
+    color: rgb(218, 218, 218);
+}
+section h2 {
+    margin-left: 60px;
+}

@@ -1,0 +1,37 @@
+ul {
+    gap: 20px;
+}
+li img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+[aria-roledescription="slide"] {
+    border: 1px solid red;
+    height: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    color: white;
+    font-family: "Inter", sans-serif;
+    position: relative;
+}
+[aria-roledescription="slide"] h4 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 10px;
+}
+.card-footer {
+    position: absolute;
+    bottom: 0;
+}
+.card-footer * {
+    margin: 0;
+}
