@@ -5,7 +5,6 @@ import { useState, useEffect, useContext } from "react";
 import style from "./style.module.css";
 import { Context } from "../../App";
 import { useParams } from "react-router";
-import Stars from "../Stars/Stars";
 
 const Search = () => {
     const [found, setFound] = useState({});
@@ -29,14 +28,17 @@ const Search = () => {
     }, [url, expression]);
     return (
         <Layout>
-            {/* {found?.map((title, index) => {
-                return (
-                    <div key={index} className={style.card}>
-                        <img src={title.image} alt={title.title} />
-                        <h3>{title.title}</h3>
-                    </div>
-                );
-            })} */}
+            <main className={style.main}>
+                {Array.isArray(found) &&
+                    found?.map((title, index) => {
+                        return (
+                            <div key={index} className={style.card}>
+                                <img src={title.image} alt={title.title} />
+                                <h3>{title.title + " " + title.description}</h3>
+                            </div>
+                        );
+                    })}
+            </main>
         </Layout>
     );
 };

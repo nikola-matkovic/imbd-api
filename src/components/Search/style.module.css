@@ -1,0 +1,32 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 25px;
+}
+.card {
+    border: 1px solid black;
+    overflow: hidden;
+    height: auto;
+    color: white;
+    font-family: "Inter", sans-serif;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card h3 {
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 20px 0;
+}
