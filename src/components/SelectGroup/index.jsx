@@ -1,7 +1,7 @@
 const SelectGroup = (props) => {
-    let { title, multiple, array, arrayKey, name } = props;
+    let { title, styles, multiple, array, arrayKey, name } = props;
     return (
-        <div>
+        <div className={styles}>
             <h3>{title}</h3>
             <select multiple={multiple} name={name}>
                 {array[arrayKey].map((option, index, array) => {

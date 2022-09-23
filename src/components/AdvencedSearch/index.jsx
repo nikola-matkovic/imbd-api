@@ -218,7 +218,16 @@ const Advencedsearch = () => {
                     name="sound_mixes"
                 />
             </section>
-            <section></section>
+            <section>
+                <SelectGroup
+                    name="has"
+                    title="Title Data"
+                    array={selectFilters}
+                    arrayKey="Title Data"
+                    styles={style.selectOption}
+                    multiple={true}
+                />
+            </section>
         </Layout>
     );
 };
