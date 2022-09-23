@@ -227,6 +227,22 @@ const Advencedsearch = () => {
                     styles={style.selectOption}
                     multiple={true}
                 />
+                <SelectGroup
+                    name="countries"
+                    title="Countries"
+                    array={selectFilters}
+                    arrayKey="Countries"
+                    styles={style.selectOption}
+                    multiple={true}
+                />
+                <SelectGroup
+                    name="languages"
+                    title="Languages"
+                    array={selectFilters}
+                    arrayKey="Languages"
+                    styles={style.selectOption}
+                    multiple={true}
+                />
             </section>
         </Layout>
     );
