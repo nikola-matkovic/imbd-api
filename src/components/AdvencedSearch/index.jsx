@@ -251,6 +251,14 @@ const Advencedsearch = () => {
                     styles={style.selectOption}
                     multiple={false}
                 />
+                <SelectGroup
+                    name="sort"
+                    title="Sort by"
+                    array={selectFilters}
+                    arrayKey="Sort by"
+                    styles={style.selectOption}
+                    multiple={false}
+                />
             </section>
         </Layout>
     );
