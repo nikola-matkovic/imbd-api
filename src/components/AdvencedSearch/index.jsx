@@ -195,6 +195,13 @@ const Advencedsearch = () => {
                     arrayKey="Companies"
                     name="companies"
                 />
+                <CheckboxGroup
+                    styles={style.checkOption}
+                    title="US Certificates"
+                    array={checkboxFilters}
+                    arrayKey="US Certificates"
+                    name="certificates"
+                />
             </section>
         </Layout>
     );
