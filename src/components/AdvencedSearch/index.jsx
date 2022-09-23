@@ -202,6 +202,20 @@ const Advencedsearch = () => {
                     arrayKey="US Certificates"
                     name="certificates"
                 />
+                <CheckboxGroup
+                    styles={style.checkOption}
+                    title="Color Info"
+                    array={checkboxFilters}
+                    arrayKey="Color Info"
+                    name="colors"
+                />
+                <CheckboxGroup
+                    styles={style.checkOption}
+                    title="Sound Mix"
+                    array={checkboxFilters}
+                    arrayKey="Sound Mix"
+                    name="sound_mixes"
+                />
             </section>
         </Layout>
     );
