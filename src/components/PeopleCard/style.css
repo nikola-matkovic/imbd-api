@@ -4,7 +4,7 @@ ul {
 li img {
     width: 100%;
     object-fit: cover;
-    height: 300px;
+    height: 320px;
 }
 [aria-roledescription="slide"] {
     border: 1px solid red;
@@ -26,11 +26,13 @@ li img {
     text-align: center;
     font-size: 16px;
     color: white;
-    margin: 10px;
+    margin: 5px;
 }
 .card-footer {
     position: absolute;
     bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 .card-footer * {
     margin: 0;
