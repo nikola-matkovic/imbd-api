@@ -181,6 +181,13 @@ const Advencedsearch = () => {
                     arrayKey="Genres"
                     name="genres"
                 />
+                <CheckboxGroup
+                    styles={style.checkOption}
+                    title="Title Groups"
+                    array={checkboxFilters}
+                    arrayKey="Title Groups"
+                    name="groups"
+                />
             </section>
         </Layout>
     );
