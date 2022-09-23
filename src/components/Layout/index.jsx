@@ -5,7 +5,6 @@ const Layout = (props) => {
         <div>
             <Nav />
             {props.children}
-            <Footer />
         </div>
     );
 };

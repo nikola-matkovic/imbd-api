@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import style from "./style.module.css";
 import { Context } from "../../App";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const Search = () => {
     const [found, setFound] = useState({});
@@ -38,6 +39,10 @@ const Search = () => {
                             </div>
                         );
                     })}
+                <div className={style.notFound}>
+                    Didn't find the title you were looking for? Try our{" "}
+                    <Link to="/Advencedsearch">advanced search.</Link>
+                </div>
             </main>
         </Layout>
     );
