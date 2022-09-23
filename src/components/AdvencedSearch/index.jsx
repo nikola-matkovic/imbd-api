@@ -4,6 +4,7 @@ import { useState } from "react";
 import selectFilters from "./selectFilters.json";
 import checkboxFilters from "./checkboxFilters.json";
 import CheckboxGroup from "../checkboxGroup";
+import SelectGroup from "../SelectGroup";
 
 const Advencedsearch = () => {
     const [title, setTitle] = useState("");
@@ -217,6 +218,7 @@ const Advencedsearch = () => {
                     name="sound_mixes"
                 />
             </section>
+            <section></section>
         </Layout>
     );
 };
