@@ -74,8 +74,8 @@ const Show = () => {
                 return (
                     <>
                         <PeopleCard
-                            name={actor.name}
-                            asCharacter={actor.asCharacter}
+                            header={actor.name}
+                            paragraph={actor.asCharacter}
                             image={actor.image}
                         />
                     </>

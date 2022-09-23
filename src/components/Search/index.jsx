@@ -12,7 +12,7 @@ const Search = () => {
     let context = useContext(Context);
     let url = context.url;
     let setUrl = context.setUrl;
-    let apiKey = key.key5;
+    let apiKey = key.key;
     const urls = [
         "https://imdb-api.com/en/API/SearchMovie",
         "https://imdb-api.com/en/API/SearchSeries",
