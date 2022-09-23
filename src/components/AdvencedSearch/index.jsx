@@ -1,13 +1,37 @@
 import Layout from "../Layout";
 import style from "./style.module.css";
 import { useState } from "react";
-import filters from "fiters.json";
+import selectFilters from "./selectFilters.json";
+import checkboxFilters from "./checkboxFilters.json";
+import CheckboxGroup from "../checkboxGroup";
+
 const Advencedsearch = () => {
     const [title, setTitle] = useState("");
+    const [relaseFrom, setRelaseFrom] = useState("");
+    const [relaseTo, setRelaseTo] = useState("");
+    const [userRatingFrom, setUserRatingFrom] = useState("-");
+    const [userRatingTo, setUserRatingTo] = useState("-");
+    const [numberOfVotesFrom, setNumberOfVotesFrom] = useState("");
+    const [numberOfVotesTo, setNumberOfVotesTo] = useState("");
+    const [keywords, setKeywords] = useState("");
+    const [filmingLocation, setFilmingLocation] = useState("");
+    const [popularityFrom, setPopularityFrom] = useState("");
+    const [popularityTo, setPopularityTo] = useState("");
+    const [plot, setPlot] = useState("");
+    const [runtimeFrom, setRuntimeFrom] = useState("");
+    const [runtimeTo, SetRuntimeTo] = useState("");
+
+    let ratingOptions = [];
+    ratingOptions.push(<option selected>-</option>);
+    for (let i = 1.0; i <= 10; i += 0.1) {
+        ratingOptions.push(
+            <option value={i.toFixed(1)}>{i.toFixed(1)}</option>
+        );
+    }
 
     return (
         <Layout>
-            <section className={style.filters}>
+            <section className={style.inputs}>
                 <div>
                     <h3>Title</h3>
                     <input
@@ -18,8 +42,138 @@ const Advencedsearch = () => {
                     />
                 </div>
                 <div>
-                    <h3>Title type</h3>
+                    <h3>Release Date</h3>
+                    <div className={style.inputGroup}>
+                        <span>From</span>
+                        <input
+                            type="text"
+                            value={relaseFrom}
+                            onChange={(e) => setRelaseFrom(e.target.value)}
+                            placeholder="Enter date"
+                        />
+                        <span>To</span>
+                        <input
+                            type="text"
+                            value={relaseTo}
+                            onChange={(e) => setRelaseTo(e.target.value)}
+                            placeholder="Enter date"
+                        />
+                    </div>
+                    <i>Format: YYYY-MM-DD, YYYY-MM, or YYYY</i>
                 </div>
+                <div>
+                    <h3>User Rating</h3>
+                    <div className={style.inputGroup}>
+                        <span>From</span>
+                        <select
+                            type="text"
+                            value={userRatingFrom}
+                            onChange={(e) => setUserRatingFrom(e.target.value)}
+                        >
+                            {ratingOptions}
+                        </select>
+                        <span>To</span>
+                        <select
+                            type="text"
+                            value={userRatingTo}
+                            onChange={(e) => setUserRatingTo(e.target.value)}
+                        >
+                            {ratingOptions}
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <h3>Number Of Votes</h3>
+                    <div className={style.inputGroup}>
+                        <span>From</span>
+                        <input
+                            type="number"
+                            value={numberOfVotesFrom}
+                            onChange={(e) =>
+                                setNumberOfVotesFrom(e.target.value)
+                            }
+                        />
+                        <span>To</span>
+                        <input
+                            type="number"
+                            value={numberOfVotesTo}
+                            onChange={(e) => setNumberOfVotesTo(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <h3>keywords</h3>
+                    <input
+                        type="text"
+                        value={keywords}
+                        onChange={(e) => setKeywords(e.target.value)}
+                        placeholder="Emter text"
+                    />
+                    <br />
+                    <i>
+                        Search for a notable object, concept, style or aspect.
+                    </i>
+                </div>
+                <div>
+                    <h3>Filming Locations</h3>
+                    <input
+                        type="text"
+                        value={filmingLocation}
+                        onChange={(e) => setFilmingLocation(e.target.value)}
+                        placeholder="Emter text"
+                    />
+                </div>
+                <div>
+                    <h3>popularity</h3>
+                    <div className={style.inputGroup}>
+                        <span>From</span>
+                        <input
+                            type="number"
+                            value={popularityFrom}
+                            onChange={(e) => setPopularityFrom(e.target.value)}
+                        />
+                        <span>To</span>
+                        <input
+                            type="number"
+                            value={popularityTo}
+                            onChange={(e) => setPopularityTo(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <h3>Runtime</h3>
+                    <div className={style.inputGroup}>
+                        <span>From</span>
+                        <input
+                            type="number"
+                            value={runtimeFrom}
+                            onChange={(e) => setRuntimeFrom(e.target.value)}
+                        />
+                        <span>To</span>
+                        <input
+                            type="number"
+                            value={runtimeTo}
+                            onChange={(e) => SetRuntimeTo(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <h3>Plot</h3>
+                    <input
+                        type="text"
+                        value={plot}
+                        onChange={(e) => setPlot(e.target.value)}
+                    />
+                </div>
+            </section>
+            <section className={style.checkboxes}>
+                <CheckboxGroup
+                    styles={style.checkOption}
+                    title="TitlTitle Type"
+                    array={checkboxFilters}
+                    arrayKey="titlTitle Type"
+                    name="title_type"
+                />
             </section>
         </Layout>
     );
