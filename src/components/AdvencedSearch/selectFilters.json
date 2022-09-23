@@ -1216,11 +1216,11 @@
         {"Description" :"zu"}
     ],
     "Count" : [
-        {"DisplayName"  : "50"},
+        {"DisplayName"  : "50 Per Page"},
         {"Description" :"50"},
-        {"DisplayName"  : "100"},
+        {"DisplayName"  : "100 Per Page"},
         {"Description" :"100"},
-        {"DisplayName"  : "250"},
+        {"DisplayName"  : "250 Per Page"},
         {"Description" :"250"}
     ],
     "Sort by": [

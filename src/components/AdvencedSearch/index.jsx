@@ -243,6 +243,14 @@ const Advencedsearch = () => {
                     styles={style.selectOption}
                     multiple={true}
                 />
+                <SelectGroup
+                    name="count"
+                    title="Count"
+                    array={selectFilters}
+                    arrayKey="Count"
+                    styles={style.selectOption}
+                    multiple={false}
+                />
             </section>
         </Layout>
     );
