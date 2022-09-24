@@ -231,7 +231,6 @@ const Advencedsearch = () => {
                         onChange={(e) => setKeywords(e.target.value)}
                         placeholder="Emter text"
                     />
-                    <br />
                     <i>
                         Search for a notable object, concept, style or aspect.
                     </i>

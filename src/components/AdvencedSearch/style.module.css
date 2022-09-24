@@ -90,3 +90,25 @@
 .resultHeader {
     color: white;
 }
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+.inputs > div {
+    margin-top: 30px;
+    border-bottom: 2px dashed rgb(48, 48, 48);
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.inputs input {
+    max-width: 400px;
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
