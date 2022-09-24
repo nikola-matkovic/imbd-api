@@ -5,6 +5,7 @@ import selectFilters from "./selectFilters.json";
 import checkboxFilters from "./checkboxFilters.json";
 import CheckboxGroup from "../checkboxGroup";
 import SelectGroup from "../SelectGroup";
+import Search from "../Search";
 
 const Advencedsearch = () => {
     const [title, setTitle] = useState("");
@@ -19,8 +20,6 @@ const Advencedsearch = () => {
     const [popularityFrom, setPopularityFrom] = useState("");
     const [popularityTo, setPopularityTo] = useState("");
     const [plot, setPlot] = useState("");
-    const [runtimeFrom, setRuntimeFrom] = useState("");
-    const [runtimeTo, SetRuntimeTo] = useState("");
 
     const [titleType, setTitleType] = useState([]);
     const [genres, setGenres] = useState([]);
@@ -35,6 +34,69 @@ const Advencedsearch = () => {
     const [languages, setLanguages] = useState([]);
     const [count, setCount] = useState([]);
     const [sort, setSort] = useState([]);
+
+    const search = () => {
+        let params = {};
+        const setKey = (from, to) => {
+            if (from !== "" && to !== "") {
+                return `${userRatingFrom},${userRatingTo}`;
+            } else if (from !== "") {
+                return `${from},`;
+            } else if (to !== "") {
+                return `${to},`;
+            } else {
+                return "";
+            }
+        };
+        let relase = setKey(relaseFrom, relaseTo);
+        let rating = setKey(userRatingFrom, userRatingTo);
+        let votes = setKey(numberOfVotesFrom, numberOfVotesTo);
+        let popularity = setKey(popularityFrom, popularityTo);
+
+        let values = [
+            title,
+            relase,
+            rating,
+            votes,
+            keywords,
+            filmingLocation,
+            popularity,
+            plot,
+            titleType.join(","),
+            genres.join(","),
+            titleGroups.join(","),
+            companies.join(","),
+            usCertificate.join(","),
+            colorInfo.join(","),
+            soundMix.join(","),
+            titleData.join(","),
+            countries.join(","),
+            languages.join(","),
+            count.join(","),
+            sort.join(","),
+        ];
+        let keys = [
+            "title",
+            "release_date",
+            "user_rating",
+            "num_votes",
+            "keywords",
+            "locations",
+            "moviemeter",
+            "plot",
+            "title_type",
+            "genres",
+            "groups",
+            "companies",
+            "certificates",
+            "colors",
+            "sound_mixes",
+        ];
+        values.forEach((value, index) => {
+            if (value !== "" && value !== []) {
+            }
+        });
+    };
 
     const HandleChange = (state, setState, e) => {
         const { value, checked } = e.target;
@@ -175,23 +237,6 @@ const Advencedsearch = () => {
                             type="number"
                             value={popularityTo}
                             onChange={(e) => setPopularityTo(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <h3>Runtime</h3>
-                    <div className={style.inputGroup}>
-                        <span>From</span>
-                        <input
-                            type="number"
-                            value={runtimeFrom}
-                            onChange={(e) => setRuntimeFrom(e.target.value)}
-                        />
-                        <span>To</span>
-                        <input
-                            type="number"
-                            value={runtimeTo}
-                            onChange={(e) => SetRuntimeTo(e.target.value)}
                         />
                     </div>
                 </div>
@@ -338,17 +383,7 @@ const Advencedsearch = () => {
                     position: "fixed",
                     bottom: "0px",
                 }}
-                onClick={() =>
-                    console.log({
-                        titleType,
-                        genres,
-                        titleGroups,
-                        companies,
-                        usCertificate,
-                        colorInfo,
-                        soundMix,
-                    })
-                }
+                onClick={() => search()}
             >
                 Log
             </button>
