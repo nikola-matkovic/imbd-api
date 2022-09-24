@@ -21,6 +21,16 @@ const Advencedsearch = () => {
     const [plot, setPlot] = useState("");
     const [runtimeFrom, setRuntimeFrom] = useState("");
     const [runtimeTo, SetRuntimeTo] = useState("");
+    const [titleType, setTitleType] = useState([]);
+
+    const HandleChange = (state, setState, e) => {
+        const { value, checked } = e.target;
+        if (checked) {
+            setState([...state, value]);
+        } else {
+            setState(state.filter((e) => e !== value));
+        }
+    };
 
     let ratingOptions = [];
     ratingOptions.push(<option selected>-</option>);
@@ -174,6 +184,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="titlTitle Type"
                     name="title_type"
+                    change={HandleChange}
+                    state={titleType}
+                    setState={setTitleType}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -260,6 +273,7 @@ const Advencedsearch = () => {
                     multiple={false}
                 />
             </section>
+            <button onClick={() => console.log(titleType)}>Log</button>
         </Layout>
     );
 };

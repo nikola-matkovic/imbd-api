@@ -1,5 +1,7 @@
 const CheckboxGroup = (props) => {
-    let { title, arrayKey, stiles, array, name } = props;
+    let { title, arrayKey, stiles, array, name, change, state, setState } =
+        props;
+
     return (
         <div>
             <h3>{title}</h3>
@@ -13,6 +15,7 @@ const CheckboxGroup = (props) => {
                                 name={name}
                                 id={array[index + 1].Description}
                                 value={array[index + 1].Description}
+                                onChange={(e) => change(state, setState, e)}
                             />
                             <label htmlFor={array[index + 1].Description}>
                                 {array[index].DisplayName}
