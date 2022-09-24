@@ -91,6 +91,11 @@ const Advencedsearch = () => {
             "certificates",
             "colors",
             "sound_mixes",
+            "has",
+            "countries",
+            "languages",
+            "count",
+            "sort",
         ];
         values.forEach((value, index) => {
             if (value !== "" && value !== []) {
