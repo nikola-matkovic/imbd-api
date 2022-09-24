@@ -1,18 +1,20 @@
 import Layout from "../Layout";
 import style from "./style.module.css";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import selectFilters from "./selectFilters.json";
 import checkboxFilters from "./checkboxFilters.json";
 import CheckboxGroup from "../checkboxGroup";
 import SelectGroup from "../SelectGroup";
-import Search from "../Search";
+import axios from "axios";
+import api from "../api/key.json";
 
 const Advencedsearch = () => {
+    let apiKey = api.key;
     const [title, setTitle] = useState("");
     const [relaseFrom, setRelaseFrom] = useState("");
     const [relaseTo, setRelaseTo] = useState("");
-    const [userRatingFrom, setUserRatingFrom] = useState("-");
-    const [userRatingTo, setUserRatingTo] = useState("-");
+    const [userRatingFrom, setUserRatingFrom] = useState("");
+    const [userRatingTo, setUserRatingTo] = useState("");
     const [numberOfVotesFrom, setNumberOfVotesFrom] = useState("");
     const [numberOfVotesTo, setNumberOfVotesTo] = useState("");
     const [keywords, setKeywords] = useState("");
@@ -35,19 +37,33 @@ const Advencedsearch = () => {
     const [count, setCount] = useState([]);
     const [sort, setSort] = useState([]);
 
+    const [params, setParams] = useState({});
+    const [results, setResults] = useState({});
+
+    useEffect(() => {
+        let url = "https://imdb-api.com/API/AdvancedSearch";
+        axios
+            .get(url, { params: { apiKey, ...params } })
+            .then((result) => {
+                setResults(result.data.results);
+            })
+            .catch((e) => console.log(e));
+    }, [params]);
+
     const search = () => {
-        let params = {};
+        let tempParams = {};
         const setKey = (from, to) => {
             if (from !== "" && to !== "") {
                 return `${userRatingFrom},${userRatingTo}`;
             } else if (from !== "") {
                 return `${from},`;
             } else if (to !== "") {
-                return `${to},`;
+                return `,${to}`;
             } else {
                 return "";
             }
         };
+
         let relase = setKey(relaseFrom, relaseTo);
         let rating = setKey(userRatingFrom, userRatingTo);
         let votes = setKey(numberOfVotesFrom, numberOfVotesTo);
@@ -97,10 +113,13 @@ const Advencedsearch = () => {
             "count",
             "sort",
         ];
+
         values.forEach((value, index) => {
             if (value !== "" && value !== []) {
+                tempParams[keys[index]] = value;
             }
         });
+        setParams(tempParams);
     };
 
     const HandleChange = (state, setState, e) => {
@@ -118,16 +137,13 @@ const Advencedsearch = () => {
         let option;
         for (option in options) {
             if (options[option].selected) {
-                console.log("selectovano je" + options[option].value);
                 values.push(options[option].value);
             }
         }
         setState(values);
-        console.log(values);
     };
 
     let ratingOptions = [];
-    ratingOptions.push(<option selected>-</option>);
     for (let i = 1.0; i <= 10; i += 0.1) {
         ratingOptions.push(
             <option value={i.toFixed(1)}>{i.toFixed(1)}</option>
@@ -390,8 +406,24 @@ const Advencedsearch = () => {
                 }}
                 onClick={() => search()}
             >
-                Log
+                search
             </button>
+            <section className={style.results}>
+                {Array.isArray(results) &&
+                    results?.map((result, index) => {
+                        return (
+                            <div className={style.card} key={index}>
+                                <img src={result.image} alt={result.title} />
+                                <h3>
+                                    {result.title}
+                                    {result.description}
+                                </h3>
+                                <i>{result.genres}</i>
+                                <p>{result.plot}</p>
+                            </div>
+                        );
+                    })}
+            </section>
         </Layout>
     );
 };
