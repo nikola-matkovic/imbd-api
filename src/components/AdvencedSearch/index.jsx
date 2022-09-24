@@ -342,7 +342,7 @@ const Advencedsearch = () => {
                     setState={setSoundMix}
                 />
             </section>
-            <section>
+            <section className={style.selects}>
                 <SelectGroup
                     name="has"
                     title="Title Data"
@@ -398,8 +398,11 @@ const Advencedsearch = () => {
                     state={sort}
                     setState={setSort}
                 />
+                <button className="btn btn-primary" onClick={() => search()}>
+                    search
+                </button>
             </section>
-            <button onClick={() => search()}>search</button>
+
             <section className={style.results}>
                 {Array.isArray(results) &&
                     results?.map((result, index) => {

@@ -58,3 +58,21 @@
     justify-content: center;
     align-items: center;
 }
+.selects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+.selects select {
+    width: 300px;
+}
+.selects select[multiple] {
+    height: 200px;
+}
+
+.selects button {
+    width: 300px;
+    height: 60px;
+}
