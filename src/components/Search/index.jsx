@@ -6,6 +6,7 @@ import style from "./style.module.css";
 import { Context } from "../../App";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Search = () => {
     const [found, setFound] = useState({});
@@ -34,7 +35,10 @@ const Search = () => {
                     found?.map((title, index) => {
                         return (
                             <div key={index} className={style.card}>
-                                <img src={title.image} alt={title.title} />
+                                <LazyLoadImage
+                                    src={title.image}
+                                    alt={title.title}
+                                />
                                 <h3>{title.title + " " + title.description}</h3>
                             </div>
                         );

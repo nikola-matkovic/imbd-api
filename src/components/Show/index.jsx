@@ -13,6 +13,8 @@ import PeopleCard from "../PeopleCard";
 import style from "./style.module.css";
 import Stars from "../Stars/Stars";
 import parse from "html-react-parser";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const Show = () => {
     let apiKey = Api.key5;
     let { movie } = useParams();
@@ -97,7 +99,7 @@ const Show = () => {
             {posters?.map((poster) => {
                 return (
                     <SplideSlide>
-                        <img
+                        <LazyLoadImage
                             src={poster.link}
                             alt=""
                             onClick={() => window.open(poster.link, "_blank")}
@@ -111,7 +113,7 @@ const Show = () => {
         <Layout>
             <div className={style.info}>
                 <div className={style.left}>
-                    <img src={image} alt={fullTitle} />
+                    <LazyLoadImage src={image} alt={fullTitle} />
                 </div>
                 <div className={style.right}>
                     <i className={style.awards}>{awards}</i>

@@ -7,6 +7,7 @@ import CheckboxGroup from "../checkboxGroup";
 import SelectGroup from "../SelectGroup";
 import axios from "axios";
 import api from "../api/key.json";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Advencedsearch = () => {
     let apiKey = api.key;
@@ -398,17 +399,27 @@ const Advencedsearch = () => {
                     state={sort}
                     setState={setSort}
                 />
-                <button className="btn btn-primary" onClick={() => search()}>
-                    search
-                </button>
+                <div>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => search()}
+                    >
+                        search
+                    </button>
+                </div>
             </section>
-
+            {Array.isArray(results) && (
+                <h2 className={style.resultHeader}>Results:</h2>
+            )}
             <section className={style.results}>
                 {Array.isArray(results) &&
                     results?.map((result, index) => {
                         return (
                             <div className={style.card} key={index}>
-                                <img src={result.image} alt={result.title} />
+                                <LazyLoadImage
+                                    src={result.image}
+                                    alt={result.title}
+                                />
                                 <h3>
                                     {result.title}
                                     {result.description}
