@@ -3,27 +3,28 @@ const CheckboxGroup = (props) => {
         props;
 
     return (
-        <div>
+        <div className={stiles}>
             <h3>{title}</h3>
-            <div className={stiles}></div>
-            {array[arrayKey].map((option, index, array) => {
-                if (index % 2 == 0) {
-                    return (
-                        <div>
-                            <input
-                                type="checkbox"
-                                name={name}
-                                id={array[index + 1].Description}
-                                value={array[index + 1].Description}
-                                onChange={(e) => change(state, setState, e)}
-                            />
-                            <label htmlFor={array[index + 1].Description}>
-                                {array[index].DisplayName}
-                            </label>
-                        </div>
-                    );
-                }
-            })}
+            <div>
+                {array[arrayKey].map((option, index, array) => {
+                    if (index % 2 == 0) {
+                        return (
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    name={name}
+                                    id={array[index + 1].Description}
+                                    value={array[index + 1].Description}
+                                    onChange={(e) => change(state, setState, e)}
+                                />
+                                <label htmlFor={array[index + 1].Description}>
+                                    {array[index].DisplayName}
+                                </label>
+                            </div>
+                        );
+                    }
+                })}
+            </div>
         </div>
     );
 };

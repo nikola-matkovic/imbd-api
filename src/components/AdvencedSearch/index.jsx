@@ -399,15 +399,7 @@ const Advencedsearch = () => {
                     setState={setSort}
                 />
             </section>
-            <button
-                style={{
-                    position: "fixed",
-                    bottom: "0px",
-                }}
-                onClick={() => search()}
-            >
-                search
-            </button>
+            <button onClick={() => search()}>search</button>
             <section className={style.results}>
                 {Array.isArray(results) &&
                     results?.map((result, index) => {

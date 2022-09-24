@@ -31,6 +31,29 @@
     color: white;
     margin: 20px 0;
 }
-.checkboxes {
-    background-color: red;
+.checkboxes > div {
+    margin-block: 40px;
+    border-bottom: 2px dashed rgb(48, 48, 48);
+    padding-bottom: 30px;
+}
+.checkboxes > div h3 {
+    margin-bottom: 20px;
+}
+.checkboxes > div > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 250px));
+    gap: 10px;
+    padding: 10px;
+}
+.checkboxes > div > div > div {
+    vertical-align: middle;
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+}
+.checkboxes > div > div > div label {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
