@@ -30,6 +30,12 @@ const Advencedsearch = () => {
     const [colorInfo, setColorInfo] = useState([]);
     const [soundMix, setSoundMix] = useState([]);
 
+    const [titleData, setTitleData] = useState([]);
+    const [countries, setCountries] = useState([]);
+    const [languages, setLanguages] = useState([]);
+    const [count, setCount] = useState([]);
+    const [sort, setSort] = useState([]);
+
     const HandleChange = (state, setState, e) => {
         const { value, checked } = e.target;
         if (checked) {
@@ -37,6 +43,20 @@ const Advencedsearch = () => {
         } else {
             setState(state.filter((e) => e !== value));
         }
+    };
+
+    const HandleChangeSelect = (state, setState, e) => {
+        const options = e.target.options;
+        let values = [];
+        let option;
+        for (option in options) {
+            if (options[option].selected) {
+                console.log("selectovano je" + options[option].value);
+                values.push(options[option].value);
+            }
+        }
+        setState(values);
+        console.log(values);
     };
 
     let ratingOptions = [];
@@ -264,6 +284,9 @@ const Advencedsearch = () => {
                     arrayKey="Title Data"
                     styles={style.selectOption}
                     multiple={true}
+                    change={HandleChangeSelect}
+                    state={titleData}
+                    setState={setTitleData}
                 />
                 <SelectGroup
                     name="countries"
