@@ -25,7 +25,7 @@ const Advencedsearch = () => {
     const [titleType, setTitleType] = useState([]);
     const [genres, setGenres] = useState([]);
     const [titleGroups, setTitleGroups] = useState([]);
-    const [companies, setCompas] = useState([]);
+    const [companies, setCompanies] = useState([]);
     const [usCertificate, setUsCertificate] = useState([]);
     const [colorInfo, setColorInfo] = useState([]);
     const [soundMix, setSoundMix] = useState([]);
@@ -201,6 +201,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="Genres"
                     name="genres"
+                    change={HandleChange}
+                    state={genres}
+                    setState={setGenres}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -208,6 +211,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="Title Groups"
                     name="groups"
+                    change={HandleChange}
+                    state={titleGroups}
+                    setState={setTitleGroups}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -215,6 +221,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="Companies"
                     name="companies"
+                    change={HandleChange}
+                    state={companies}
+                    setState={setCompanies}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -222,6 +231,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="US Certificates"
                     name="certificates"
+                    change={HandleChange}
+                    state={usCertificate}
+                    setState={setUsCertificate}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -229,6 +241,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="Color Info"
                     name="colors"
+                    change={HandleChange}
+                    state={colorInfo}
+                    setState={setColorInfo}
                 />
                 <CheckboxGroup
                     styles={style.checkOption}
@@ -236,6 +251,9 @@ const Advencedsearch = () => {
                     array={checkboxFilters}
                     arrayKey="Sound Mix"
                     name="sound_mixes"
+                    change={HandleChange}
+                    state={soundMix}
+                    setState={setSoundMix}
                 />
             </section>
             <section>
@@ -280,7 +298,25 @@ const Advencedsearch = () => {
                     multiple={false}
                 />
             </section>
-            <button onClick={() => console.log(titleType)}>Log</button>
+            <button
+                style={{
+                    position: "fixed",
+                    bottom: "0px",
+                }}
+                onClick={() =>
+                    console.log({
+                        titleType,
+                        genres,
+                        titleGroups,
+                        companies,
+                        usCertificate,
+                        colorInfo,
+                        soundMix,
+                    })
+                }
+            >
+                Log
+            </button>
         </Layout>
     );
 };
