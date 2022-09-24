@@ -21,7 +21,14 @@ const Advencedsearch = () => {
     const [plot, setPlot] = useState("");
     const [runtimeFrom, setRuntimeFrom] = useState("");
     const [runtimeTo, SetRuntimeTo] = useState("");
+
     const [titleType, setTitleType] = useState([]);
+    const [genres, setGenres] = useState([]);
+    const [titleGroups, setTitleGroups] = useState([]);
+    const [companies, setCompas] = useState([]);
+    const [usCertificate, setUsCertificate] = useState([]);
+    const [colorInfo, setColorInfo] = useState([]);
+    const [soundMix, setSoundMix] = useState([]);
 
     const HandleChange = (state, setState, e) => {
         const { value, checked } = e.target;
