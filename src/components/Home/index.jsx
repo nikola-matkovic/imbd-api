@@ -6,6 +6,7 @@ import style from "./style.module.css";
 import { Context } from "../../App";
 import { useNavigate } from "react-router";
 import Stars from "../Stars/Stars";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Home = () => {
     let navigate = useNavigate();
@@ -44,7 +45,7 @@ const Home = () => {
         } = movie;
         return (
             <div className={style.card} onClick={(e) => goToShow(id)}>
-                <img src={image} alt={movie.title} />
+                <LazyLoadImage src={image} alt={movie.title} />
                 <h3>{movie.title}</h3>
                 <Stars number={imDbRating} />
                 <div key={1} className={style.rating}>
