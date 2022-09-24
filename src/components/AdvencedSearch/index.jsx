@@ -295,6 +295,9 @@ const Advencedsearch = () => {
                     arrayKey="Countries"
                     styles={style.selectOption}
                     multiple={true}
+                    change={HandleChangeSelect}
+                    state={countries}
+                    setState={setCountries}
                 />
                 <SelectGroup
                     name="languages"
@@ -303,6 +306,9 @@ const Advencedsearch = () => {
                     arrayKey="Languages"
                     styles={style.selectOption}
                     multiple={true}
+                    change={HandleChangeSelect}
+                    state={languages}
+                    setState={setLanguages}
                 />
                 <SelectGroup
                     name="count"
@@ -311,6 +317,9 @@ const Advencedsearch = () => {
                     arrayKey="Count"
                     styles={style.selectOption}
                     multiple={false}
+                    change={HandleChangeSelect}
+                    state={count}
+                    setState={setCount}
                 />
                 <SelectGroup
                     name="sort"
@@ -319,6 +328,9 @@ const Advencedsearch = () => {
                     arrayKey="Sort by"
                     styles={style.selectOption}
                     multiple={false}
+                    change={HandleChangeSelect}
+                    state={sort}
+                    setState={setSort}
                 />
             </section>
             <button
